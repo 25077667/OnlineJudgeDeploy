@@ -41,6 +41,7 @@ services:
       - SERVICE_URL=http://judge-server:8081
       - BACKEND_URL=http://oj-backend:8000/api/judge_server_heartbeat/
       - TOKEN=${TOKEN}
+      - PORT=8081
       # - judger_debug=1
 
   oj-backend:
@@ -58,11 +59,9 @@ services:
       - POSTGRES_USER=onlinejudge
       - POSTGRES_PASSWORD=onlinejudge
       - JUDGE_SERVER_TOKEN=${TOKEN}
+      - TOKEN=${TOKEN}
       # - FORCE_HTTPS=1
       # - STATIC_CDN_HOST=cdn.oj.com
-    ports:
-      - 8000
-      - 1443
     networks:
       - isc_oj
 networks:
