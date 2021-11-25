@@ -7,7 +7,7 @@ services:
     restart: always
     volumes:
       - ./data/redis:/data
-  
+
   oj-postgres:
     image: postgres:10-alpine
     container_name: oj-postgres
@@ -42,7 +42,7 @@ services:
       - BACKEND_URL=http://oj-backend:8000/api/judge_server_heartbeat/
       - TOKEN=${TOKEN}
       # - judger_debug=1
-  
+
   oj-backend:
     image: registry.cn-hangzhou.aliyuncs.com/onlinejudge/oj_backend
     container_name: oj-backend
@@ -61,5 +61,10 @@ services:
       # - FORCE_HTTPS=1
       # - STATIC_CDN_HOST=cdn.oj.com
     ports:
-      - "0.0.0.0:80:8000"
-      - "0.0.0.0:443:1443"
+      - 8000:8000
+      - 1443:1443
+    networks:
+      - oj
+networks:
+  oj:
+    external: true
