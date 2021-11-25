@@ -61,10 +61,10 @@ services:
       # - FORCE_HTTPS=1
       # - STATIC_CDN_HOST=cdn.oj.com
     ports:
-      - 8000:8000
-      - 1443:1443
+      - 8000
+      - 1443
     networks:
-      - oj
+      - isc_oj
 networks:
-  oj:
+  isc_oj:
     external: true
