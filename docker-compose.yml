@@ -51,7 +51,7 @@ services:
       - isc_oj
 
   oj-backend:
-    image: registry.cn-hangzhou.aliyuncs.com/onlinejudge/oj_backend
+    image: zxc25077667/oj_backend
     container_name: oj-backend
     restart: always
     depends_on:
