@@ -66,10 +66,14 @@ services:
       - POSTGRES_PASSWORD=onlinejudge
       - JUDGE_SERVER_TOKEN=${TOKEN}
       - TOKEN=${TOKEN}
+      - PORT=8000
       # - FORCE_HTTPS=1
       # - STATIC_CDN_HOST=cdn.oj.com
     networks:
       - isc_oj
+    ports:
+      - "8000:8000"
+      - "1443:1443"
 networks:
   isc_oj:
     external: true
